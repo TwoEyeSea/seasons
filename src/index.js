@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import SeasonDisplay from "./SeasonDisplay";
 
 class App extends React.Component {
   // Alternative way to initialize the state -  Declaring the state on the constructor isn't necessary.
@@ -12,13 +13,14 @@ class App extends React.Component {
       (err) => this.setState({ errorMessage: err.message })
     );
   }
+  // console.log(position)
 
   render() {
     if (this.state.errorMessage && !this.state.lat) {
       return <div>Error: {this.state.errorMessage}</div>;
     }
     if (!this.state.errorMessage && this.state.lat) {
-      return <div>Latitude: {this.state.lat}</div>;
+      return <SeasonDisplay lat={this.state.lat} />;
     }
 
     return <div>Loading</div>;
