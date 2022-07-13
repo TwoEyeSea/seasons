@@ -2,12 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    // THE ONLY TIME! we can directly assign to the state object is when we initially define it as seen below.
-    this.state = { lat: null, errorMessage: "" };
-    //We can add additional properties to update the state with using a "," to separate the properties
-  }
+  // Alternative way to initialize the state -  Declaring the state on the constructor isn't necessary.
+  state = { lat: null, errorMessage: "" };
+  // Using this abreviated syntax is equal to the initial state initialization and is processed by babel.
 
   componentDidMount() {
     window.navigator.geolocation.getCurrentPosition(
