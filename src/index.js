@@ -13,7 +13,6 @@ class App extends React.Component {
       (err) => this.setState({ errorMessage: err.message })
     );
   }
-  // console.log(position)
 
   render() {
     if (this.state.errorMessage && !this.state.lat) {
