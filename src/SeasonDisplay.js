@@ -1,6 +1,9 @@
 import "./seasonDisplay.css";
 import React from "react";
 
+// Helper Functions and Config objects typically go at the top of the file in React convention.
+// The Functional Component is at the bottom.
+// Config object
 const seasonConfig = {
   summer: {
     text: "Let's hit the beach!",
@@ -12,6 +15,7 @@ const seasonConfig = {
   },
 };
 
+// Helper function
 const getSeason = (lat, month) => {
   if (month > 2 && month < 9) {
     return lat > 0 ? "summer" : "winter";
@@ -20,6 +24,7 @@ const getSeason = (lat, month) => {
   }
 };
 
+// Functional Component
 const SeasonDisplay = (props) => {
   const season = getSeason(props.lat, new Date().getMonth());
   const { text, iconName } = seasonConfig[season];
